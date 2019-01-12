@@ -5,6 +5,10 @@ notifications:
 
 language: python
 
+env:
+  - DEBUG=
+  - DEBUG="--debug"
+
 python: 3.6
 
 services:
@@ -16,4 +20,4 @@ install:
   - pip install docker-py ansible==2.7.5 molecule==2.19.0
 
 script:
-  - molecule test
+  - molecule $DEBUG --base-config ./molecule-base.yml test
