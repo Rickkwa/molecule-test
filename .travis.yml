@@ -20,4 +20,5 @@ install:
   - pip install docker-py ansible==2.7.5 molecule==2.19.0
 
 script:
+  - ansible --version && molecule --version
   - molecule $DEBUG --base-config ./molecule-base.yml test
