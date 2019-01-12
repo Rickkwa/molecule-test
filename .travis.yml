@@ -1,0 +1,19 @@
+---
+
+notifications:
+  email: false
+
+language: python
+
+python: 3.6
+
+services:
+  - docker
+
+install:
+  - sudo apt-get update
+  - sudo apt-get install -y python-pip libssl-dev
+  - pip install docker-py ansible==2.7.5 molecule==2.19.0
+
+script:
+  - molecule test
