@@ -6,8 +6,10 @@ notifications:
 language: python
 
 env:
-  - DEBUG=
-  - DEBUG="--debug"
+  - DEBUG="" MOLECULE_VER=2.19.0
+  - DEBUG="--debug" MOLECULE_VER=2.19.0
+  - DEBUG="" MOLECULE_VER=2.16.0
+  - DEBUG="--debug" MOLECULE_VER=2.16.0
 
 python: 3.6
 
@@ -17,7 +19,7 @@ services:
 install:
   - sudo apt-get update
   - sudo apt-get install -y python-pip libssl-dev
-  - pip install docker-py ansible==2.7.5 molecule==2.19.0
+  - pip install docker-py ansible==2.7.5 molecule==${MOLECULE_VER}
 
 script:
   - ansible --version && molecule --version
